@@ -1,0 +1,175 @@
+/* Corrections apportées :
+   - "a :hover" -> "a:hover"
+   - fusion des règles body et ajout de background-size/position
+   - ajout de box-sizing global
+   - correction de "media" -> "@media"
+   - corrections de ponctuation manquante (;) et centrage des tables
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("IMG_7776.JPG");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  background-blend-mode: overlay;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+a {
+  color: yellow;
+}
+
+a:hover {
+  color: white;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+#imagelogo {
+  height: 90px;
+}
+
+#asfo {
+  height: 100px;
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+.slider {
+  position: relative;
+  width: 90%;
+  height: 400px; /* ajuste la hauteur à ton goût */
+  overflow: hidden;
+  background: #000000; /* fond si l’image ne couvre pas tout */
+  display: flex;
+  margin: 0 auto;
+}
+
+/* ===== IMAGES ===== */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideFondu 10s infinite ease-in-out;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes slideFondu {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  35% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/* ===== DÉCALAGE DES IMAGES ===== */
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.slide:nth-child(2) {
+  animation-delay: 3s;
+}
+.slide:nth-child(3) {
+  animation-delay: 6s;
+}
+
+footer {
+  display: flex;
+  padding-bottom: 0;
+  flex: 1;
+}
+
+/* TABLE PRODUITS */
+.product-table {
+  width: 90%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.product-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.product-table img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: #000000 0 8px 20px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 767px) {
+  .menu {
+    font-size: 10px;
+  }
+  .slider {
+    height: 200px;
+    width: 300px;
+  }
+  #imagelogo {
+    height: 50px;
+  }
+  #asfo {
+    height: 50px;
+  }
+
+  .product-table {
+    width: 90%;
+  }
+
+  .product-table img {
+    width: 50px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: #ffffff 0 8px 20px;
+  }
+
+  /* Masquer la 1ère colonne (nom des produits) sur mobile */
+  .product-table th:nth-child(1),
+  .product-table td:nth-child(1) {
+    display: none;
+  }
+}
