@@ -35,58 +35,54 @@ main {
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent; /* conserve le fond global */
 }
 
 /* Partie gauche - Logo 1 */
 .header-left {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
+  align-items: center;
   justify-content: flex-start;
 }
 
 /* Partie centre - Logo 2 */
 .header-center {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 /* Partie droite - Navigation */
 .header-right {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  gap: 15px;
 }
 
 .menu {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 12px;
+  align-items: center;
 }
 
-a {
-  color: yellow;
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(255, 255, 255);
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-}
-
+/* images tailles */
 #imagelogo {
   height: 90px;
+  width: auto;
 }
 
 #asfo {
   height: 100px;
+  width: auto;
 }
 
 /* ===== CONTENEUR PRINCIPAL ===== */
@@ -189,40 +185,27 @@ footer {
 @media screen and (max-width: 767px) {
 
   header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px;
-    gap: 10px;
   }
-  
-  .header-left, .header-center, .header-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .header-left {
-    justify-content: flex-start;
-  }
-
-  .header-right {
-    justify-content: flex-end;
-  }
-
-  .menu {
-    font-size: 10px;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
   #imagelogo {
     height: 50px;
   }
-
   #asfo {
     height: 50px;
+  }
+  .menu {
+    gap: 8px;
+    font-size: 12px;
+  }
+  /* garantir que le centre reste centré visuellement */
+  .header-center {
+    order: 2;
+  }
+  .header-left {
+    order: 1;
+  }
+  .header-right {
+    order: 3;
   }
 
   .product-table {
