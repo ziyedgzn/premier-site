@@ -38,10 +38,41 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  gap: 20px;
+}
+
+/* Partie gauche - Logo 1 */
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Partie centre - Logo 2 */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Partie droite - Navigation */
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 a {
   color: yellow;
+  text-decoration: none;
 }
 
 a:hover {
@@ -157,12 +188,39 @@ footer {
 /* MOBILE */
 @media screen and (max-width: 767px) {
 
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .header-left, .header-center, .header-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-left {
+    justify-content: flex-start;
+  }
+
+  .header-right {
+    justify-content: flex-end;
+  }
+
   .menu {
     font-size: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
   }
+
   #imagelogo {
     height: 50px;
   }
+
   #asfo {
     height: 50px;
   }
